@@ -1,0 +1,196 @@
+.platform-hero {
+    background: linear-gradient(rgba(44, 62, 80, 0.9), rgba(44, 62, 80, 0.9)), url('../images/dashboard.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 10rem 5% 5rem;
+    text-align: center;
+    min-height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.platform-hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    animation: fadeIn 1s ease;
+}
+
+.platform-hero p {
+    font-size: 1.3rem;
+    max-width: 700px;
+    margin: 0 auto;
+    animation: fadeIn 1s ease 0.3s forwards;
+    opacity: 0;
+}
+
+.platform-features {
+    padding: 5rem 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.feature-tabs {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 3rem;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 1rem;
+}
+
+.tab-btn {
+    padding: 0.8rem 1.8rem;
+    background: none;
+    border: none;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--gray);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.tab-btn::after {
+    content: '';
+    position: absolute;
+    bottom: -1.1rem;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: var(--primary);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.tab-btn.active {
+    color: var(--primary);
+}
+
+.tab-btn.active::after {
+    transform: scaleX(1);
+}
+
+.tab-btn:hover:not(.active) {
+    color: var(--secondary);
+    background-color: #f5f7fa;
+}
+
+.tab-content {
+    display: none;
+    animation: fadeIn 0.5s ease;
+}
+
+.tab-content.active {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+}
+
+.content-left {
+    flex: 1;
+}
+
+.content-left h2 {
+    font-size: 2.2rem;
+    color: var(--secondary);
+    margin-bottom: 1.5rem;
+}
+
+.content-left p {
+    font-size: 1.1rem;
+    color: var(--gray);
+    margin-bottom: 1.5rem;
+    line-height: 1.7;
+}
+
+.content-left ul {
+    list-style: none;
+    margin-bottom: 2rem;
+}
+
+.content-left li {
+    margin-bottom: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--dark);
+    font-weight: 500;
+}
+
+.content-left i {
+    color: var(--primary);
+}
+
+.content-right {
+    flex: 1;
+}
+
+.feature-image {
+    width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.5s ease;
+}
+
+.feature-image:hover {
+    transform: scale(1.02);
+}
+
+.platform-cta {
+    text-align: center;
+    padding: 5rem;
+    background-color: var(--light);
+}
+
+.platform-cta h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--secondary);
+}
+
+.platform-cta p {
+    font-size: 1.2rem;
+    color: var(--gray);
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media (max-width: 1024px) {
+    .tab-content.active {
+        flex-direction: column;
+    }
+    
+    .content-right {
+        order: -1;
+        margin-bottom: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .platform-hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .feature-tabs {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .tab-btn {
+        width: 100%;
+        max-width: 300px;
+        text-align: center;
+    }
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}

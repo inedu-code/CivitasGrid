@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Platform – Civitas Grid</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="product.css">
+</head>
+<body>
+    <header class="modern-header">
+        <nav>
+            <div class="logo"><!--<img src="Img/.png" alt="Verrasight Logo" style="height: 70px; vertical-align: middle; margin-right: 0.1rem;">-->Civitas <span>Grid</span></div>
+            <div class="menu-toggle" id="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-list">
+                <li class="active"><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="product.html">Products</a></li>
+                <li><a href="service.html">Services </a></li>
+                <li><a href="team.html">Our team </a></li>
+                <li><a href="contact.html" class="cta-nav">Get Started</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="platform-hero">
+            <div class="hero-content">
+                <h1>The Nerve Center of Urban Tech</h1>
+                <p>Sync municipal systems across departments for optimized performance, faster response times, and better citizen outcomes.</p>
+            </div>
+        </section>
+
+        <section class="platform-features">
+            <div class="feature-tabs">
+                <button class="tab-btn active" data-tab="dashboard">Dashboard</button>
+                <button class="tab-btn" data-tab="analytics">Analytics</button>
+                <button class="tab-btn" data-tab="integration">Integration</button>
+                <button class="tab-btn" data-tab="security">Security</button>
+            </div>
+            
+            <div class="tab-content active" id="dashboard">
+                <div class="content-left">
+                    <h2>Unified Command Dashboard</h2>
+                    <p>Our centralized dashboard provides real-time visibility into all city operations from a single pane of glass. Monitor traffic flows, utility usage, emergency responses, and more with customizable widgets and alerts.</p>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Role-based views for different departments</li>
+                        <li><i class="fas fa-check"></i> Customizable KPIs and metrics</li>
+                        <li><i class="fas fa-check"></i> Real-time alerting system</li>
+                    </ul>
+                </div>
+                <div class="content-right">
+                    <img src="Img/img1.jpg" alt="Dashboard" class="feature-image">
+                </div>
+            </div>
+            
+            <div class="tab-content" id="analytics">
+                <!-- Similar structure for other tabs -->
+            </div>
+        </section>
+
+        <section class="platform-cta">
+            <h2>Ready to Experience Our Platform?</h2>
+            <p>Schedule a personalized demo to see how Civitas Grid can transform your city operations.</p>
+            <a href="contact.html" class="cta-button primary">Request a Demo</a>
+        </section>
+    </main>
+
+    <footer class="modern-footer">
+        <!-- Same footer as index.html -->
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="product.js"></script>
+</body>
+</html>
