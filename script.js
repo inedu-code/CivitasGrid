@@ -71,3 +71,108 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('scroll', animateOnScroll);
     animateOnScroll(); // Run once on load
 });
+
+
+
+
+
+// Animated counter for stats
+function animateCounters() {
+    const counters = document.querySelectorAll('[data-count]');
+    const speed = 200;
+    
+    counters.forEach(counter => {
+        const target = +counter.getAttribute('data-count');
+        const count = +counter.innerText;
+        const increment = target / speed;
+        
+        if(count < target) {
+            counter.innerText = Math.ceil(count + increment);
+            setTimeout(animateCounters, 1);
+        } else {
+            counter.innerText = target;
+        }
+    });
+}
+
+// Initialize counters when section is in view
+const statsSection = document.querySelector('.stats-section');
+const statsObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if(entry.isIntersecting) {
+            animateCounters();
+            statsObserver.unobserve(entry.target);
+        }
+    });
+});
+
+if(statsSection) {
+    statsObserver.observe(statsSection);
+}
+
+// Case study carousel
+let currentCase = 0;
+const cases = document.querySelectorAll('.case-study');
+const caseDots = document.querySelectorAll('.case-studies .dot');
+
+function showCase(index) {
+    cases.forEach(caseStudy => caseStudy.classList.remove('active'));
+    caseDots.forEach(dot => dot.classList.remove('active'));
+    
+    cases[index].classList.add('active');
+    caseDots[index].classList.add('active');
+    currentCase = index;
+}
+
+caseDots.forEach((dot, index) => {
+    dot.addEventListener('click', () => showCase(index));
+});
+
+document.querySelector('.case-studies .prev').addEventListener('click', () => {
+    currentCase = (currentCase - 1 + cases.length) % cases.length;
+    showCase(currentCase);
+});
+
+document.querySelector('.case-studies .next').addEventListener('click', () => {
+    currentCase = (currentCase + 1) % cases.length;
+    showCase(currentCase);
+});
+
+// Testimonial carousel
+let currentTestimonial = 0;
+const testimonials = document.querySelectorAll('.testimonial');
+const testimonialDots = document.querySelectorAll('.testimonials-section .dot');
+
+function showTestimonial(index) {
+    testimonials.forEach(testimonial => testimonial.classList.remove('active'));
+    testimonialDots.forEach(dot => dot.classList.remove('active'));
+    
+    testimonials[index].classList.add('active');
+    testimonialDots[index].classList.add('active');
+    currentTestimonial = index;
+}
+
+testimonialDots.forEach((dot, index) => {
+    dot.addEventListener('click', () => showTestimonial(index));
+});
+
+document.querySelector('.testimonials-section .prev').addEventListener('click', () => {
+    currentTestimonial = (currentTestimonial - 1 + testimonials.length) % testimonials.length;
+    showTestimonial(currentTestimonial);
+});
+
+document.querySelector('.testimonials-section .next').addEventListener('click', () => {
+    currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+    showTestimonial(currentTestimonial);
+});
+
+// Auto-rotate carousels
+setInterval(() => {
+    currentCase = (currentCase + 1) % cases.length;
+    showCase(currentCase);
+}, 8000);
+
+setInterval(() => {
+    currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+    showTestimonial(currentTestimonial);
+}, 10000);
